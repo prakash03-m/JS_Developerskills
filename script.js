@@ -679,3 +679,37 @@ let n = 7, p=4;
 const totalFlips = Math.floor(n/2);
 const myP = Math.floor(p/2);
 return Math.min(myP, totalFlips - myP);
+
+// Ouput [[0, 12], [1, 11], [2, 10], [3, 9], [4, 8], [5, 7], [6, 6]]
+let arr = [0,1,2,3,4,5,6,7,8,9,10,11,12];
+const num = 12
+function changeContent (arr, num) {
+    let pairs = [];
+    let finalArr = [];
+    arr.forEach((curr) => {
+        let temp = num - curr
+        if(arr.includes(temp)) {
+            pairs.push(curr, temp)
+            finalArr.push(pairs)
+            pairs = []
+            arr = arr.filter(x => x !== curr)
+        }
+    })
+    console.log(finalArr);
+}
+
+
+//Recursive 
+function sum(x) {
+  function inner(y) {
+    if (y === undefined) return x;   // when final () is called
+    x += y;
+    return inner;                   // return the same function for chaining
+  }
+  return inner;
+}
+
+console.log(sum(9)(8)(9)()); // 26
+console.log(sum(1)(2)(3)(4)()); // 10
+console.log(sum(5)()); // 5
+changeContent(arr, num);
