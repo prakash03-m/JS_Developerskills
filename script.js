@@ -713,3 +713,24 @@ console.log(sum(9)(8)(9)()); // 26
 console.log(sum(1)(2)(3)(4)()); // 10
 console.log(sum(5)()); // 5
 changeContent(arr, num);
+
+//Two Sum
+//Given an array of integers nums and an integer target, return the indices of the two numbers whose sum equals target.
+
+function twoSum(nums, target) {
+  const resultMap = new Map();  
+
+  for(let i=0; i< nums.length; i++) {
+    const needed = target - nums[i];
+    if(resultMap.has(needed)) {
+      return [resultMap.get(needed), i]
+    }
+    resultMap.set(nums[i], i)
+  }
+
+}
+
+console.log(twoSum([2, 7, 11, 15], 9))
+console.log(twoSum([3, 2, 4], 6))
+console.log(twoSum([3, 3], 6))
+console.log(twoSum([1, 3, 5, 7], 10))
