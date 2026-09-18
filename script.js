@@ -734,3 +734,22 @@ console.log(twoSum([2, 7, 11, 15], 9))
 console.log(twoSum([3, 2, 4], 6))
 console.log(twoSum([3, 3], 6))
 console.log(twoSum([1, 3, 5, 7], 10))
+
+//first duplicate
+function firstDuplicate(nums) {
+    // your solution
+    const uniqueArr = new Set();
+    for(let i=0; i< nums.length; i++) {
+      if(uniqueArr.has(nums[i])) {
+        return nums[i]
+      } else {
+        uniqueArr.add(nums[i])
+      }
+    }
+    return -1
+}
+
+console.log(firstDuplicate([2, 1, 3, 5, 3, 2]))
+console.log(firstDuplicate([1, 2, 3, 4]))
+console.log(firstDuplicate([5, 1, 5, 2, 1]))
+console.log(firstDuplicate([1, 3, 5, 7, 7]))
